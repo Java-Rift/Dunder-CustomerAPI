@@ -1,0 +1,17 @@
+========== Take-Home exercise ===========
+Please create an application in no more than 2 hours.
+
+Keep the following concerns in mind and be able to explain:
+- your code structure
+- the problems you solve in your code
+- your ability to simplify complexity
+- your ability to ensure quality - testing & documentation
+- the ease of understanding your code
+
+Create a Customer API that would help to power an online paper store (Dunder Mifflin Paper Company).
+Your API should be able to Create, View, List, and Delete customers.
+
+Please create in a GitHub (or bitbucket etc) repository with your code and instructions on how to run your application.
+
+Once completed answer the following question in the git repo (no code needed):
+- If you were to scale your customer API service to millions of customers how would you build it differently?

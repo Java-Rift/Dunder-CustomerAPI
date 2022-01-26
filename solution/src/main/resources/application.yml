@@ -1,0 +1,25 @@
+
+server:
+  port: 9092
+
+spring:
+  application:
+    name: Dunder_Customer_Service
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        #exclude: "*"  # exclude all endpoints
+        include: health,info,refresh
+  endpoint:
+    beans:
+      enabled: false
+    info:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+
