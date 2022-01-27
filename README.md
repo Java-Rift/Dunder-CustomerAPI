@@ -56,3 +56,27 @@ java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=40013,suspend=n -jar
   "uuid": "d37caa13-4f3c-43ee-9da5-1d520ed87a7f"
 }
 ```
+## Design modifications to make this API scalable up to millions of customers?
+
+Service Scalability of this magnitude is possible if the application is designed from the ground up to be horizontally scalable 
+based on the Microservices Architecture – a distributed architecture with each modules handling specific task and handling it very well.
+
+Horizontal scaling requires addition of new instances of a service quickly and with no downtime.
+
+####What we already have with this Customer API?
+  1. It’s a `microservice` with specific task – customer management.
+####What needs to be added?
+  1. It needs to be containerized with lightweight containers like `docker`, so that all the necessary files to spin up the service are packaged in one place.
+  2. Configuration must be externalized into a separate service managing all configurations, and this can easily be achieved using `Spring Cloud Config Server` and `Spring Cloud Bus`.
+      Config server gives us.
+     - Versioning
+     - Security
+     - Isolation
+     - Single codebase (robust profiling)
+     - Automatic update visibility across army of services
+  3. `Logs` need to be streamed to a centralized location
+  4. Bind request execution-cycle with `correlation-ID` to better trace action logs
+  5. Integrate a `service registry client`, so that the API registers itself with external `service discovery`.
+  6. Service communication should be `Asynchronous` as much as possible
+  7. For `synchronous` communication, the service should implement a `circuit breaker pattern` to mitigate partial failures gracefully.
+  8. Take advantage of `cloud infrastructure` (like AWS) or `container orchestration frameworks` (like Kubernetes) for deploying the service so that it can get autoscaling for any traffic situation.
