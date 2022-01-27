@@ -63,9 +63,9 @@ based on the Microservices Architecture – a distributed architecture with each
 
 Horizontal scaling requires addition of new instances of a service quickly and with no downtime.
 
-####What we already have with this Customer API?
+#### What we already have with this Customer API?
   1. It’s a `microservice` with specific task – customer management.
-####What needs to be added?
+#### What needs to be added?
   1. It needs to be containerized with lightweight containers like `docker`, so that all the necessary files to spin up the service are packaged in one place.
   2. Configuration must be externalized into a separate service managing all configurations, and this can easily be achieved using `Spring Cloud Config Server` and `Spring Cloud Bus`.
       Config server gives us.
